@@ -1,0 +1,42 @@
+<RFIDGraphics>
+    rfidoutput: rfidoutput
+    FloatLayout:
+
+        Button:
+            text:"Volume & Weight"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':0, 'y':0.9}
+
+        Button:
+            text:"RFID"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':.35, 'y':.9}
+
+        Button:
+            text:"Loading"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':.7, 'y':.9}
+
+        Label:
+            id:rfidoutput
+            background_color: (1,1,1,1)
+            canvas.before:
+				Color:
+					rgba: self.background_color
+				Rectangle:
+					size: self.size
+					pos: self.pos
+            text:"RFID"
+            font_size:20
+            size_hint:(.4, .6)
+            pos_hint:{'x':.1, 'y':.2}
+            color:(0,0,0,1)
+
+        Button:
+            text:"Submit"
+            font_size:40
+            size_hint:(.2, .2)
+            pos_hint:{'x':.6, 'y':.4}

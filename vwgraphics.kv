@@ -1,0 +1,82 @@
+<DropdownHeight@DropDown>:
+    max_height: 140
+
+<VWGraphics>
+    volume: Volume
+    weight: Weight
+    density: Density
+    FloatLayout:
+
+        Button:
+            text:"Volume & Weight"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':0, 'y':0.9}
+
+        Button:
+            text:"RFID"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':.35, 'y':.9}
+
+        Button:
+            text:"Loading"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':.7, 'y':.9}
+
+        Label:
+            id:Volume
+            background_color: (1,1,1,1)
+            canvas.before:
+				Color:
+					rgba: self.background_color
+				Rectangle:
+					size: self.size
+					pos: self.pos
+            text:"Volume"
+            font_size:30
+            size_hint:(.2, .1)
+            pos_hint:{'x':.1, 'y':.7}
+            color:(0,0,0,1)
+        Spinner:
+            id: Density
+            text: "Weight"
+            values:["Density 1","Density 2","Density 3","Density 4","Density 5","Density 6","Density 7","Density 8","Density 9","Density 10"]
+            on_text:root.spinner_clicked(Density.text)
+            size_hint:(.2, .1)
+            pos_hint:{'x':.1, 'y':.5}
+            font_size:30
+            dropdown_cls: 'DropdownHeight'
+            background_normal:""
+            background_color:1,1,1,1
+            color: 0,0,0,1
+
+
+        Label:
+            id:Weight
+            background_color: (1,1,1,1)
+            canvas.before:
+				Color:
+					rgba: self.background_color
+				Rectangle:
+					size: self.size
+					pos: self.pos
+            text:"Weight"
+            font_size:30
+            size_hint:(.2, .1)
+            pos_hint:{'x':.1, 'y':.15}
+            color:(0,0,0,1)
+
+
+        Button:
+            text:"Redo"
+            font_size:30
+            size_hint:(.2, .1)
+            pos_hint:{'x':.5, 'y':.1}
+
+        Button:
+            text:"Submit"
+            font_size:30
+            size_hint:(.2, .1)
+            pos_hint:{'x':.8, 'y':.1}
