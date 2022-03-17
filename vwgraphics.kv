@@ -2,49 +2,53 @@
     max_height: 140
 
 <VWGraphics>
-    volume: Volume
-    weight: Weight
-    density: Density
+    volume: volume
+    weight: weight
+    density: density
+    screenbutton:screenbutton
+
     FloatLayout:
 
         Button:
+            id:screenbutton
             text:"Volume & Weight"
             font_size:30
             size_hint:(.3, .1)
             pos_hint:{'x':0, 'y':0.9}
+            on_release: app.root.current = "Volume_Weight"
 
         Button:
             text:"RFID"
             font_size:30
             size_hint:(.3, .1)
             pos_hint:{'x':.35, 'y':.9}
-
+            on_release: app.root.current = "RFID"
         Button:
             text:"Loading"
             font_size:30
             size_hint:(.3, .1)
             pos_hint:{'x':.7, 'y':.9}
+            on_release: app.root.current = "stage_loading"
 
         Label:
-            id:Volume
+            id:volume
             background_color: (1,1,1,1)
             canvas.before:
-	    
-				Color:
-					rgba: self.background_color
-				Rectangle:
-					size: self.size
-					pos: self.pos
+		Color:
+			rgba: self.background_color
+		Rectangle:
+			size: self.size
+			pos: self.pos
             text:"Volume"
             font_size:30
             size_hint:(.2, .1)
             pos_hint:{'x':.1, 'y':.7}
             color:(0,0,0,1)
         Spinner:
-            id: Density
-            text: "Weight"
-            values:["Density 1","Density 2","Density 3","Density 4","Density 5","Density 6","Density 7","Density 8","Density 9","Density 10"]
-            on_text:root.spinner_clicked(Density.text)
+            id: density
+            text: "Density"
+            values:["1","2","3","4","5","6", "7","8","9","10"]
+            on_text:root.spinner_clicked(density.text)
             size_hint:(.2, .1)
             pos_hint:{'x':.1, 'y':.5}
             font_size:30
@@ -54,15 +58,17 @@
             color: 0,0,0,1
 
 
+
+
         Label:
-            id:Weight
+            id:weight
             background_color: (1,1,1,1)
             canvas.before:
-				Color:
-					rgba: self.background_color
-				Rectangle:
-					size: self.size
-					pos: self.pos
+		Color:
+			rgba: self.background_color
+		Rectangle:
+			size: self.size
+			pos: self.pos
             text:"Weight"
             font_size:30
             size_hint:(.2, .1)
@@ -75,9 +81,22 @@
             font_size:30
             size_hint:(.2, .1)
             pos_hint:{'x':.5, 'y':.1}
+            on_release:
+                root.Start()
+                root.clearData()
+
 
         Button:
             text:"Submit"
             font_size:30
             size_hint:(.2, .1)
             pos_hint:{'x':.8, 'y':.1}
+            on_release: root.SubmitData()
+
+
+        Button:
+            text:"Start"
+            font_size:30
+            size_hint:(.3, .3)
+            pos_hint:{'x':.6, 'y':.4}
+            on_release: root.Start()
