@@ -1,0 +1,94 @@
+<DropdownHeight@DropDown>:
+    max_height: 190
+
+<Graphics>
+    volume: volume
+    weight: weight
+    density: density
+    status: status
+
+    FloatLayout:
+
+        Label:
+            text:"Volume"
+            font_size:30
+            size_hint:(.25, .1)
+            pos_hint:{'x':.1, 'y':.9}
+        Label:
+            id:volume
+            background_color: (1,1,1,1)
+            canvas.before:
+				Color:
+					rgba: self.background_color
+				Rectangle:
+					size: self.size
+					pos: self.pos
+            text:""
+            font_size:30
+            size_hint:(.25, .1)
+            pos_hint:{'x':.1, 'y':.8}
+            color:(0,0,0,1)
+        Label:
+            text:"Density"
+            font_size:30
+            size_hint:(.25, .1)
+            pos_hint:{'x':.1, 'y':.675}
+        Spinner:
+            id: density
+            text: ""
+            values:["1.20 g/cm^3","1.17 g/cm^3","0.93 g/cm^3","0.905 g/cm^3","1.54 g/cm^3","1.055 g/cm^3"]
+            on_text:root.spinner_clicked(density.text)
+            size_hint:(.25, .1)
+            pos_hint:{'x':.1, 'y':.575}
+            font_size:30
+            dropdown_cls: 'DropdownHeight'
+
+
+        Label:
+            text:"Weight"
+            font_size:30
+            size_hint:(.25, .1)
+            pos_hint:{'x':.1, 'y':.15}
+
+        Label:
+            id:weight
+            background_color: (1,1,1,1)
+            canvas.before:
+				Color:
+					rgba: self.background_color
+				Rectangle:
+					size: self.size
+					pos: self.pos
+            text:""
+            font_size:30
+            size_hint:(.25, .1)
+            pos_hint:{'x':.1, 'y':.05}
+            color:(0,0,0,1)
+
+
+
+        Button:
+            id:status
+            text:"Start/End \nShipment"
+            font_size:30
+            size_hint:(.3, .15)
+            pos_hint:{'x':.6, 'y':.8}
+            background_color: (1,0,0,1)
+            on_release:
+                root.Status()
+
+
+        Button:
+            text:"Submit"
+            font_size:30
+            size_hint:(.3, .1)
+            pos_hint:{'x':.6, 'y':.2}
+            on_release: root.SubmitData()
+
+
+        Button:
+            text:"Scan Pallet"
+            font_size:30
+            size_hint:(.3, .3)
+            pos_hint:{'x':.6, 'y':.4}
+            on_release: root.Scan()
