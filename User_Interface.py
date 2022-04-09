@@ -100,7 +100,7 @@ class Graphics(FloatLayout):
             start = 1
             self.ids.status.background_color=(0,1,0,1)
             Pallet_Number=0
-            filename = "Bill_of_Laden.csv"
+            filename = "Bill_of_Lading.csv"
             with open(filename, 'w',newline='') as csvfile:
                 csvwriter = csv.writer(csvfile)
                 csvwriter.writerow(["Pallet","Volume","Density","Weight"])
